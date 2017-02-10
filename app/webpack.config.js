@@ -2,7 +2,7 @@ var config = {
 	entry: './app.jsx',
 	output: {
 		path: '../',
-		filename: 'bundle.js'
+		filename: 'app.js'
 	},
 	module: {
 		loaders: [

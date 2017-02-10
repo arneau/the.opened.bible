@@ -1,0 +1,27 @@
+@import './styles/config.scss';
+
+:global {
+
+	body {
+		background-color: $dark_blue;
+		display: flex;
+		height: 100%;
+		font-size: 19px;
+
+		#app {
+			display: flex;
+			flex: 1 1 auto;
+		}
+	}
+
+}
+
+:local {
+
+	.wrapper {
+		display: flex;
+		flex: 1 1 auto;
+		flex-flow: column;
+	}
+
+}
