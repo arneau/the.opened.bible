@@ -1,26 +1,31 @@
+var path = require('path');
+
 var config = {
 	entry: './app.jsx',
 	output: {
-		path: '../',
+		path: path.resolve('../server'),
 		filename: 'app.js'
 	},
 	module: {
 		loaders: [
 			{
-				loader: 'babel-loader',
-				exclude: /node_modules/,
 				test: /\.jsx?/,
+				exclude: /node_modules/,
+				loader: 'babel-loader',
 			},
 			{
+				test: /\.scss$/,
+				exclude: /node_modules/,
 				loaders: [
 					'style-loader',
 					'css-loader',
 					'sass-loader'
 				],
-				exclude: /node_modules/,
-				test: /\.scss$/,
 			}
 		]
+	},
+	devServer: {
+		contentBase: path.resolve('../server')
 	}
 };
 
