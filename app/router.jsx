@@ -1,28 +1,22 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import Wrapper from './components/wrapper.jsx';
+import Wrapper from './containers/wrapper.jsx';
 
-import Home from './components/pages/home.jsx';
-import Overview from './components/pages/overview.jsx';
-import Topics from './components/pages/topics.jsx';
-import Missing from './components/pages/missing.jsx';
+import HomePage from './pages/home.jsx';
+import MissingPage from './pages/missing.jsx';
+import OverviewPage from './pages/overview.jsx';
+import TopicsPage from './pages/topics.jsx';
 
 export default (
 	<Router history={browserHistory}>
 		<Route path="/" component={Wrapper}>
-			<IndexRoute component={Home} />
-			<Route path="overview" component={Overview} />
-			<Route path="topics" component={Topics} />
-			<Route path="*" component={Missing} />
+			<IndexRoute component={HomePage} />
+			<Route path="lesson/:id" component={HomePage} />
+			<Route path="topic/:id" component={HomePage} />
+			<Route path="overview" component={OverviewPage} />
+			<Route path="topics" component={TopicsPage} />
+			<Route path="*" component={MissingPage} />
 		</Route>
 	</Router>
 );
-
-
-{/*<Router history={browserHistory}>*/}
-	{/*<Route path="/" component={Wrapper}>*/}
-		{/*<IndexRoute component={Main} />*/}
-		{/*<Route path="*" component={Footer} />*/}
-	{/*</Route>*/}
-{/*</Router>*/}

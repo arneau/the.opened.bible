@@ -1,0 +1,63 @@
+@import '../../styles/config.scss';
+
+:local {
+
+	.list_item {
+		list-style: none;
+		width: auto;
+
+		a {
+			border-left: 8px solid transparent;
+			display: inline-block;
+			margin-bottom: 10px;
+			padding: 10px 28px 10px 20px;
+			text-decoration: none;
+
+			&[data-type=lesson] {
+				border-left-color: $dark_green;
+
+				&:hover {
+					background-color: $dark_green;
+				}
+			}
+			&[data-type=topic] {
+				border-left-color: $dark_blue;
+
+				&:hover {
+					background-color: $dark_blue;
+				}
+			}
+
+			&:hover, &:global(.active) {
+
+				&[data-type=lesson] {
+					background-color: $dark_green;
+				}
+				&[data-type=topic] {
+					background-color: $dark_blue;
+				}
+
+				h2 {
+					color: #fff;
+				}
+				p {
+					color: rgba(255, 255, 255, 0.5);
+				}
+			}
+
+			h2 {
+				color: rgba(0, 0, 0, 0.87);
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+			}
+			p {
+				color: rgba(0, 0, 0, 0.54);
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+			}
+		}
+		ul {
+			margin-bottom: 10px;
+			padding-left: 20px;
+		}
+	}
+
+}

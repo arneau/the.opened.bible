@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Header from './global/header.jsx';
-import Footer from './global/footer.jsx';
+import FooterContainer from '../containers/footer.jsx';
+import HeaderContainer from '../containers/header.jsx';
 
 import styles from './wrapper.scss';
 
@@ -14,9 +14,9 @@ export default class Wrapper extends React.Component {
 	render() {
 		return (
 			<div className={styles.wrapper}>
-				<Header />
+				<HeaderContainer />
 				{this.props.children}
-				<Footer />
+				<FooterContainer />
 			</div>
 		);
 	}

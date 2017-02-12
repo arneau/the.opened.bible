@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import styles from './header.scss';
 
-class Header extends React.Component {
+export default class HeaderContainer extends React.Component {
 
 	render() {
 		return (
@@ -17,5 +17,3 @@ class Header extends React.Component {
 	}
 
 }
-
-export default Header;

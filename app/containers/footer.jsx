@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './footer.scss';
 
-export default class Footer extends React.Component {
+export default class FooterContainer extends React.Component {
 
 	render() {
 		return (
