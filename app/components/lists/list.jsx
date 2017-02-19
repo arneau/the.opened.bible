@@ -2,6 +2,8 @@ import React from 'react';
 
 import ListItem from './list_item.jsx';
 
+import styles from './list.scss';
+
 export default class List extends React.Component {
 
 	constructor(props) {
@@ -9,13 +11,14 @@ export default class List extends React.Component {
 	}
 
 	render() {
-		let { items } = this.props.data;
+		let { keys } = this.props.data;
+		window.datas = this.props.data.datas;
 		return (
-			<ul>
+			<ul className={styles.list}>
 				{
-					items.map(item => {
+					keys.map((key) => {
 						return (
-							<ListItem key={item.id} data={item} />
+							<ListItem key={key} data={datas[key]} />
 						)
 					})
 				}

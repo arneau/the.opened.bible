@@ -1,7 +1,7 @@
 var path = require('path');
 
 var config = {
-	entry: './app.jsx',
+	entry: './app.js',
 	output: {
 		path: path.resolve('../server'),
 		filename: 'app.js'
@@ -25,7 +25,8 @@ var config = {
 		]
 	},
 	devServer: {
-		contentBase: path.resolve('../server')
+		contentBase: path.resolve('../server'),
+		historyApiFallback: true
 	}
 };
 

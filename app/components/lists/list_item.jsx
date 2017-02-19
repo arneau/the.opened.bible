@@ -10,12 +10,12 @@ export default class ListItem extends React.Component {
 	}
 
 	render() {
-		let { id, children, name, type } = this.props.data;
+		let { id, children, title, type } = this.props.data;
 		let to = '/' + type + '/' + id;
 		return (
 			<li className={styles.list_item}>
 				<Link activeClassName="active" data-type={type} to={to}>
-					<h2>{name}</h2>
+					<h2>{title}</h2>
 					<p>Tags: 3</p>
 				</Link>
 				{children && (
