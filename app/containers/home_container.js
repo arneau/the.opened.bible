@@ -1,13 +1,12 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
-import Home from '../pages/home.jsx';
+import Home from '../pages/home.jsx'
 
 const mapStateToProps = (state, props) => {
 	return {
-		state: state,
 		topics: state.topics
-	};
-};
+	}
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
@@ -17,10 +16,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 				data: data
 			})
 		}
-	};
-};
+	}
+}
 
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Home);
+)(Home)

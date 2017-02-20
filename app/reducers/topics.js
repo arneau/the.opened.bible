@@ -1,8 +1,8 @@
 import { HYDRATE_STATE } from '../actions/types.js';
 
 const initial_state = {
-	keys: [],
-	datas: {}
+	datas: {},
+	ids: []
 };
 
 export function topics(state = initial_state, action) {
@@ -10,7 +10,7 @@ export function topics(state = initial_state, action) {
 		case HYDRATE_STATE:
 			return {
 				datas: action.data.datas,
-				keys: action.data.keys
+				ids: action.data.ids
 			};
 		default:
 			return state;

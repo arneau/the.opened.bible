@@ -1,36 +1,41 @@
-import React from 'react';
+import React from 'react'
 
-import Main from '../containers/main.jsx';
-
-import Sheet from '../components/sheet.jsx';
-import List from '../components/lists/list.jsx';
+import Main from '../containers/main.jsx'
+import Sheet from '../components/sheet.jsx'
+import List from '../components/lists/list.jsx'
 
 export default class HomePage extends React.Component {
 
+	static childContextTypes = {
+		topics: React.PropTypes.object
+	}
+
 	constructor(props) {
-		super(props);
-		// this.state = {
-		// 	items: {
-		// 		keys: [],
-		// 		datas: []
-		// 	}
-		// };
+		super(props)
 	}
 
 	componentWillMount() {
 		fetch('http://localhost/api.opened.bible/').then((response) => {
 			response.json().then((json) => {
-				this.props.hydrateState(json);
-			});
-		});
+				this.props.hydrateState(json)
+			})
+		})
+	}
+
+	getChildContext() {
+		return {
+			topics: this.props.topics
+		}
 	}
 
 	render() {
-		let { params } = this.props;
+
+		let { params } = this.props
+
 		return (
 			<Main>
 				<Sheet>
-					<List data={this.props.topics} />
+					<List />
 				</Sheet>
 				{params.id && (
 					<Sheet>
@@ -38,7 +43,8 @@ export default class HomePage extends React.Component {
 					</Sheet>
 				)}
 			</Main>
-		);
+		)
+
 	}
 
 }

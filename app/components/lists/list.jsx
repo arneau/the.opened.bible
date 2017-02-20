@@ -1,29 +1,35 @@
-import React from 'react';
+import React from 'react'
 
-import ListItem from './list_item.jsx';
+import ListItem from './list_item.jsx'
 
-import styles from './list.scss';
+import styles from './list.scss'
 
 export default class List extends React.Component {
 
+	static contextTypes = {
+		topics: React.PropTypes.object
+	};
+
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
 	render() {
-		let { keys } = this.props.data;
-		window.datas = this.props.data.datas;
+
+		let { ids } = this.context.topics
+
 		return (
 			<ul className={styles.list}>
 				{
-					keys.map((key) => {
+					ids.map((id) => {
 						return (
-							<ListItem key={key} data={datas[key]} />
+							<ListItem key={id} id={id} />
 						)
 					})
 				}
 			</ul>
-		);
+		)
+
 	}
 
 }
