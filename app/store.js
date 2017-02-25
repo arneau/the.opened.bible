@@ -1,5 +1,6 @@
-import { createStore } from 'redux';
+import { createStore } from 'redux'
 
-import Reducer from './reducer.js';
+import Reducers from './reducers.js'
+import { DevToolsEnhancer } from './dev_tools.js'
 
-export default createStore(Reducer);
+export default createStore(Reducers, {}, DevToolsEnhancer)

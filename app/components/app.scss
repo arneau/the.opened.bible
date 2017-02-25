@@ -8,7 +8,7 @@
 		height: 100%;
 		font-size: 19px;
 
-		#app {
+		#wrapper {
 			display: flex;
 			flex: 1 1 auto;
 		}
@@ -18,7 +18,7 @@
 
 :local {
 
-	.wrapper {
+	.app {
 		display: flex;
 		flex: 1 1 auto;
 		flex-flow: column;

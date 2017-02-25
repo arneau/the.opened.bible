@@ -1,24 +1,19 @@
 import { HYDRATE_STATE } from '../actions/types.js'
 
 const initialState = {
-  datas: {},
-  ids: []
+  datas: {}
 }
 
-export function topics (state = initialState, action) {
+export function tree (state = initialState, action) {
   switch (action.type) {
     case HYDRATE_STATE:
       return {
         datas: {
           ...state.datas,
           ...action.data
-        },
-        ids: [
-          ...state.ids,
-          ...Object.keys(action.data)
-        ]
+        }
       }
     default:
       return state
   }
-};
+}
