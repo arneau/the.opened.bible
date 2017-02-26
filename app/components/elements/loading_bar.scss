@@ -1,0 +1,16 @@
+@import '../../styles/config.scss';
+
+:local {
+
+	.loading_bar {
+		flex: 0 0 5px;
+
+		.progress {
+			background-color: $yellow;
+			height: 5px;
+			transition: all 5s;
+			width: 0%;
+		}
+	}
+
+}

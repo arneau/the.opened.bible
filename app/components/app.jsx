@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { fetchGroupIfNeeded } from '../actions.js'
+
 import HeaderPart from './parts/header.jsx'
 import FooterPart from './parts/footer.jsx'
 import { DevTools } from '../dev_tools.js'
@@ -10,8 +12,6 @@ export default class App extends React.Component {
 
   static childContextTypes = {
     dispatch: React.PropTypes.func,
-    dispatches: React.PropTypes.object,
-    hydrateState: React.PropTypes.func,
     state: React.PropTypes.object
   }
 
@@ -22,8 +22,6 @@ export default class App extends React.Component {
   getChildContext() {
     return {
       dispatch: this.props.dispatch,
-      dispatches: this.props.dispatches,
-      hydrateState: this.props.hydrateState,
       state: this.props.state
     }
   }

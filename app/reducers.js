@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import { topics } from './reducers/topics.js'
+import { groups } from './reducers/groups.js'
 
 export default combineReducers({
-  topics
+  groups
 })

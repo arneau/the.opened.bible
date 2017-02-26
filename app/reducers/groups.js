@@ -1,16 +1,21 @@
 import { HYDRATE_STATE } from '../actions/types.js'
 
 const initialState = {
-  datas: {}
+  datas: {},
+  tree: {}
 }
 
-export function tree (state = initialState, action) {
+export function groups (state = initialState, action) {
   switch (action.type) {
     case HYDRATE_STATE:
       return {
         datas: {
           ...state.datas,
-          ...action.data
+          ...action.payload.groups.datas
+        },
+        tree: {
+          ...state.tree,
+          ...action.payload.groups.tree
         }
       }
     default:

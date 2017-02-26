@@ -1,42 +1,43 @@
-import React from 'react';
+import React from 'react'
 
-import * as fetchers from '../../fetchers.js';
+import { fetchGroupIfNeeded } from '../../actions.js'
 
-import ListItem from './list_item.jsx';
+import ListItem from './list_item.jsx'
 
-import styles from './list.scss';
+import styles from './list.scss'
 
 export default class List extends React.Component {
 
-	static contextTypes = {
-		dispatch: React.PropTypes.func,
-		state: React.PropTypes.object
-	};
+  static contextTypes = {
+    dispatch: React.PropTypes.func,
+    state: React.PropTypes.object
+  }
 
-	constructor(props) {
-		super(props);
-	}
+  constructor (props) {
+    super(props)
+  }
 
-	componentWillMount() {
-		fetchers.topics.fetchChildrenById(0, this.context.state, this.context.dispatch);
-	}
+  componentWillMount () {
+    let dispatch = this.context.dispatch
+    dispatch(fetchGroupIfNeeded(2))
+  }
 
-	render() {
+  render () {
 
-		let { ids } = this.context.state.topics;
+    let ids = Object.keys(this.context.state.groups.tree)
 
-		return (
-			<ul className={styles.list}>
-				{
-					ids.map((id) => {
-						return (
-							<ListItem key={id} id={id} />
-						);
-					})
-				}
-			</ul>
-		);
+    return (
+      <ul className={styles.list}>
+        {
+          ids.map((id) => {
+            return (
+              <ListItem key={id} id={id} />
+            )
+          })
+        }
+      </ul>
+    )
 
-	}
+  }
 
 }
