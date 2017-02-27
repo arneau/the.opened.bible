@@ -1,5 +1,6 @@
-import { fetchGroupIfNeeded } from './actions/groups.js'
+import { fetchGroupsIfNeeded, fetchTreeIfNeeded } from './actions/groups.js'
 
 export {
-  fetchGroupIfNeeded
+  fetchGroupsIfNeeded,
+  fetchTreeIfNeeded
 }

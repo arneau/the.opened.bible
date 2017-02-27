@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { fetchGroupIfNeeded } from '../../actions.js'
+import { fetchGroupsIfNeeded, fetchTreeIfNeeded } from '../../actions.js'
 
 import ListItem from './list_item.jsx'
 
@@ -19,7 +19,10 @@ export default class List extends React.Component {
 
   componentWillMount () {
     let dispatch = this.context.dispatch
-    dispatch(fetchGroupIfNeeded(2))
+    dispatch(fetchTreeIfNeeded())
+    .then(() => {
+      dispatch(fetchGroupsIfNeeded(Object.keys(this.context.state.groups.tree)))
+    })
   }
 
   render () {

@@ -17,11 +17,11 @@ export default class ListItem extends React.Component {
   }
 
   componentWillMount () {
-    getters.groups.getGroupData(this.context.state, this.context.dispatch, this.props.id)
+    // getters.groups.getGroupData(this.context.state, this.context.dispatch, this.props.id)
   }
 
   loadChildren (topic_id) {
-    getter.groups.fetchChildrenById(topic_id, this.context.state, this.context.dispatch)
+    // getter.groups.fetchChildrenById(topic_id, this.context.state, this.context.dispatch)
   }
 
   render () {
