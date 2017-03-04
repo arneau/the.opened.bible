@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { fetchGroupsIfNeeded, fetchTreeIfNeeded } from '../../actions.js'
+import { loadDatas, loadTree } from '../../actions.js'
 
 import ListItem from './list_item.jsx'
 
@@ -19,16 +19,17 @@ export default class List extends React.Component {
 
   componentWillMount () {
     let dispatch = this.context.dispatch
-    dispatch(fetchTreeIfNeeded())
+    dispatch(loadTree())
     .then(() => {
-      dispatch(fetchGroupsIfNeeded(Object.keys(this.context.state.groups.tree)))
+      dispatch(loadDatas(this.context.state.groups.tree[0]))
     })
   }
 
   render () {
-
-    let ids = Object.keys(this.context.state.groups.tree)
-
+    let ids = []
+    if (this.context.state.groups.tree[0] !== undefined) {
+      ids = this.context.state.groups.tree[0]
+    }
     return (
       <ul className={styles.list}>
         {
@@ -40,7 +41,6 @@ export default class List extends React.Component {
         }
       </ul>
     )
-
   }
 
 }

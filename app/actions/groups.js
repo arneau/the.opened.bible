@@ -2,26 +2,32 @@ const HYDRATE_STATE = 'HYDRATE_STATE'
 
 const API_URL = 'http://localhost/api.opened.bible/endpoints/'
 
-function fetchGroupsIfNeeded (ids) {
+function loadDatas (idsToLoad) {
   return (dispatch, getState) => {
-    if (shouldFetchGroups(getState(), ids)) {
-      return dispatch(fetchGroups(ids))
+    let idsToFetch = getDatasIdsToFetch(getState(), idsToLoad)
+    if (idsToFetch.length) {
+      return dispatch(fetchDatas(idsToFetch))
     } else {
       return Promise.resolve()
     }
   }
 }
 
-function shouldFetchGroups (state, ids) {
-  // return (state.groups.datas[id] === undefined)
-  return true
+function getDatasIdsToFetch (state, idsToLoad) {
+  let idsToFetch = []
+  idsToLoad.map((id) => {
+    if (state.groups.datas[id] === undefined) {
+      idsToFetch.push(id)
+    }
+  })
+  return idsToFetch
 }
 
-function fetchGroups (ids) {
+function fetchDatas (ids) {
   return dispatch => {
     return fetch(API_URL + 'groups.php?action=get_datas&ids=' + ids.join(','))
-    .then((response) => response.json())
-    .then((json) => {
+    .then(response => response.json())
+    .then(json => {
       dispatch({
         type: HYDRATE_STATE,
         payload: json
@@ -30,8 +36,8 @@ function fetchGroups (ids) {
   }
 }
 
-function fetchTreeIfNeeded () {
-  return (dispatch) => {
+function loadTree () {
+  return dispatch => {
     return dispatch(fetchTree())
   }
 }
@@ -39,8 +45,8 @@ function fetchTreeIfNeeded () {
 function fetchTree () {
   return dispatch => {
     return fetch(API_URL + 'groups.php?action=get_tree')
-    .then((response) => response.json())
-    .then((json) => {
+    .then(response => response.json())
+    .then(json => {
       dispatch({
         type: HYDRATE_STATE,
         payload: json
@@ -50,6 +56,6 @@ function fetchTree () {
 }
 
 export {
-  fetchGroupsIfNeeded,
-  fetchTreeIfNeeded
+  loadDatas,
+  loadTree
 }

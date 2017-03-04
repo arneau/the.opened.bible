@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import * as getters from '../../getters.js'
+import { loadDatas } from '../../actions.js'
 
 import styles from './list_item.scss'
 
@@ -16,39 +16,44 @@ export default class ListItem extends React.Component {
     super(props)
   }
 
-  componentWillMount () {
-    // getters.groups.getGroupData(this.context.state, this.context.dispatch, this.props.id)
-  }
-
-  loadChildren (topic_id) {
-    // getter.groups.fetchChildrenById(topic_id, this.context.state, this.context.dispatch)
+  showChildren (id) {
+    let dispatch = this.context.dispatch
+    dispatch(loadDatas(this.context.state.groups.tree[id]))
   }
 
   render () {
 
-    if (this.context.state.groups.datas[this.props.id] === undefined) {
+    let id = this.props.id
+
+    if (this.context.state.groups.datas[id] === undefined) {
       return null
     }
 
-    let { id, children, title, type } = this.context.state.groups.datas[this.props.id]
+    let { title, type } = this.context.state.groups.datas[id]
     let to = '/' + type + '/' + id
+
+    let children = []
+    if (this.context.state.groups.tree[id] !== undefined) {
+      children = this.context.state.groups.tree[id]
+    }
 
     return (
       <li className={styles.list_item}>
-        <Link activeClassName="active" data-type={type} onClick={() => this.loadChildren(id)} to={to}>
+        <Link activeClassName="active" data-type={type} onClick={() => this.showChildren(id)} to={to}>
           <h2>{title}</h2>
           <p>Tags: 3</p>
-        </Link> {children && (
+        </Link>
+        {children && (
         <ul>
           {
-            children.map((item) => {
+            children.map((id) => {
               return (
-                <ListItem key={item.id} />
+                <ListItem key={id} id={id} />
               )
             })
           }
         </ul>
-      )}
+        )}
       </li>
     )
 
