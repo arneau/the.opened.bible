@@ -2,10 +2,10 @@
 
 :local {
 
-	.main {
+	.content {
 		display: flex;
-		flex: 1 0 100%;
-		flex-flow: column nowrap;
+		flex: 1 1 auto;
+		padding: 20px;
 	}
 
 }

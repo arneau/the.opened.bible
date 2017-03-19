@@ -1,6 +1,6 @@
 import React from 'react'
 
-import MainPart from '../parts/main.jsx'
+import Sheets from '../elements/sheets.jsx'
 import Sheet from '../elements/sheet.jsx'
 import List from '../elements/list.jsx'
 
@@ -10,16 +10,18 @@ export default class HomePage extends React.Component {
     let { params } = this.props
 
     return (
-      <MainPart>
-        <Sheet>
-          <List />
-        </Sheet>
-        {params.id && (
-        <Sheet>
-          <p>{params.id}</p>
-        </Sheet>
-        )}
-      </MainPart>
+      <div>
+        <Sheets>
+          <Sheet>
+            <List />
+          </Sheet>
+          {params.id && (
+          <Sheet>
+            <p>{params.id}</p>
+          </Sheet>
+          )}
+        </Sheets>
+      </div>
     )
   }
 

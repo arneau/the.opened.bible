@@ -3,27 +3,48 @@
 :local {
 
 	.header {
-		background-color: #222;
+		background-color: $medium_blue;
+		box-shadow: 0 3px rgba(0, 0, 0, 0.1);
 		display: flex;
 		flex: 0 0 auto;
-		flex-flow: column nowrap;
 
-		.links {
-			flex: 1 1 auto;
-			padding-left: 20px;
+		.menu {
+			align-items: center;
+			cursor: pointer;
+			display: flex;
+			flex: 0 0 auto;
+			padding: 15px;
 
-			a {
+			i {
 				color: #fff;
-				display: inline-block;
-				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-				font-size: 1em;
-				font-weight: bold;
-				padding: 20px;
-				text-decoration: none;
+				text-shadow: 0 3px rgba(0, 0, 0, 0.1);
+			}
+		}
+		.title {
+			align-items: center;
+			display: flex;
+			flex: 1 1 auto;
+			padding: 15px;
+			text-align: center;
 
-				&:hover {
-					background-color: $dark_blue;
-				}
+			h1 {
+				color: #fff;
+				font-size: 1rem;
+				font-weight: normal;
+				text-shadow: 0 3px rgba(0, 0, 0, 0.1);
+				width: 100%;
+			}
+		}
+		.back {
+			align-items: center;
+			display: flex;
+			flex: 0 0 auto;
+			padding: 15px;
+			text-decoration: none;
+
+			i {
+				color: #fff;
+				text-shadow: 0 3px rgba(0, 0, 0, 0.1);
 			}
 		}
 	}

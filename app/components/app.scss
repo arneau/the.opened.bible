@@ -1,12 +1,19 @@
 @import './styles/config.scss';
+@import './styles/mixins.scss';
 
 :global {
 
+	html {
+		font-family: 'Roboto', sans-serif;
+		font-size: 18px;
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+	}
+
 	body {
-		background-color: $dark_blue;
+		background-color: $light_blue;
 		display: flex;
 		height: 100%;
-		font-size: 19px;
 
 		#wrapper {
 			display: flex;
@@ -21,7 +28,8 @@
 	.app {
 		display: flex;
 		flex: 1 1 auto;
-		flex-flow: column;
+		overflow: hidden;
+		width: 100%;
 	}
 
 }
