@@ -3,6 +3,10 @@
 
 :global {
 
+	* {
+		box-sizing: border-box;
+	}
+
 	html {
 		font-family: 'Roboto', sans-serif;
 		font-size: 18px;
@@ -11,13 +15,13 @@
 	}
 
 	body {
-		background-color: $light_blue;
-		display: flex;
+		background-color: #f6f8fb;
 		height: 100%;
 
 		#wrapper {
-			display: flex;
-			flex: 1 1 auto;
+			float: left;
+			height: 100%;
+			width: 100%;
 		}
 	}
 
@@ -27,7 +31,8 @@
 
 	.app {
 		display: flex;
-		flex: 1 1 auto;
+		float: left;
+		height: 100%;
 		overflow: hidden;
 		width: 100%;
 	}

@@ -1,0 +1,35 @@
+@import '../../../styles/config.scss';
+
+:local {
+
+	.link {
+		align-items: center;
+		border-top: 3px solid transparent;
+		color: rgba(255, 255, 255, 0.7);
+		display: flex;
+		font-size: 0.8rem;
+		padding: 15px;
+		text-decoration: none;
+
+		&.active {
+			background: $light_blue;
+			border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+			border-top: 3px solid $medium_blue;
+			color: #000;
+			cursor: default;
+			mix-blend-mode: lighten;
+
+			i {
+				color: #000;
+			}
+		}
+		&:not(.active):hover {
+			background: rgba(255, 255, 255, 0.05);
+		}
+
+		i {
+			margin-right: 15px;
+		}
+	}
+
+}

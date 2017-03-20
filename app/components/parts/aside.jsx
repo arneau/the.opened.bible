@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router'
+
+import AsideLinkComponent from './aside/link.jsx'
 
 import styles from './aside.scss'
 
@@ -24,27 +25,12 @@ export default class AsidePart extends React.Component {
         </h1>
         <hr />
         <nav className={styles.links}>
-          <Link strict activeClassName={styles.active} to='/'>
-            <i className="material-icons">home</i>
-            <span>Home</span>
-          </Link>
-          <Link activeClassName={styles.active} to='/search'>
-            <i className="material-icons">search</i>
-            <span>Search</span>
-          </Link>
+          <AsideLinkComponent icon="home" label="Home" to="/" />
+          <AsideLinkComponent icon="search" label="Search" to="/search" />
+          <AsideLinkComponent icon="book" label="Overview" to="/overview" />
           <hr />
-          <Link activeClassName={styles.active} to='/overview'>
-            <i className="material-icons">book</i>
-            <span>Overview</span>
-          </Link>
-          <Link activeClassName={styles.active} to='/topics'>
-            <i className="material-icons">directions_boat</i>
-            <span>Topics</span>
-          </Link>
-          <Link activeClassName={styles.active} to='/lessons'>
-            <i className="material-icons">map</i>
-            <span>Lessons</span>
-          </Link>
+          <AsideLinkComponent icon="directions_boat" label="Topics" to="/topics" />
+          <AsideLinkComponent icon="map" label="Lessons" to="/lessons" />
         </nav>
       </aside>
     )

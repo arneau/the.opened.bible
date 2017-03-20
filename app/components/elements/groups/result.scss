@@ -1,0 +1,90 @@
+@import '../../../styles/config.scss';
+
+
+:local {
+
+	.result {
+		border: 1px solid desaturate(lighten($medium_blue, 50), 50);
+		border-radius: 3px;
+		float: left;
+		margin-bottom: 15px;
+		width: 100%;
+
+		.content {
+			background-color: #fff;
+			border-bottom: 1px solid desaturate(lighten($medium_blue, 40), 60);
+			border-radius: 3px;
+			float: left;
+			padding: 15px;
+			width: 100%;
+
+			h6 {
+				color: rgba(0, 0, 0, 0.87);
+				float: left;
+				font-size: 0.9em;
+				width: 100%;
+			}
+			h2 {
+				float: left;
+				font-size: 1.2em;
+				width: 100%;
+			}
+			p {
+				color: rgba(0, 0, 0, 0.37);
+				float: left;
+				font-size: 0.7em;
+				width: 100%;
+			}
+		}
+
+		&[data-type=topic] {
+
+			.content {
+
+				h2 {
+					color: $topic_color;
+				}
+			}
+		}
+		&[data-type=lesson] {
+
+			.content {
+
+				h2 {
+					color: $lesson_color;
+				}
+			}
+		}
+
+		&:hover {
+
+			.content {
+
+				h6 {
+					color: rgba(255, 255, 255, 0.7);
+				}
+				h2 {
+					color: #fff;
+				}
+				p {
+					color: rgba(255, 255, 255, 0.5);
+				}
+			}
+		}
+		&[data-type=topic]:hover {
+
+			.content {
+				background-color: $topic_color;
+				border-bottom-color: $topic_color;
+			}
+		}
+		&[data-type=lesson]:hover {
+
+			.content {
+				background-color: $lesson_color;
+				border-bottom-color: $lesson_color;
+			}
+		}
+	}
+
+}
