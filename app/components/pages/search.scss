@@ -1,4 +1,5 @@
 @import '../../styles/config.scss';
+@import '../../styles/extends.scss';
 
 :local {
 
@@ -6,23 +7,19 @@
 		width: 100%;
 
 		.input {
-			display: flex;
+			float: left;
 			margin-bottom: 15px;
-			position: relative;
+			width: 100%;
 
 			input {
-				background-color: transparent;
-				border: 1px solid rgba(0, 0, 0, 0.25);
+				@extend .shadow;
+
 				border-radius: 3px;
 				color: rgba(0, 0, 0, 0.54);
-				font-size: 1em;
-				padding: 15px 15px 15px 54px;
-			}
-			i {
-				color: rgba(0, 0, 0, 0.25);
-				left: 15px;
-				position: absolute;
-				top: 15px;
+				float: left;
+				font-size: 0.9em;
+				padding: 15px;
+				width: 100%;
 			}
 		}
 		.results {

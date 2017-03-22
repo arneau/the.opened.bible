@@ -1,6 +1,7 @@
-import { loadDatas, loadTree } from './actions/groups.js'
+import { loadDatasByIds, loadDatasBySearchTerm, loadTree } from './actions/groups.js'
 
 export {
-  loadDatas,
+  loadDatasByIds,
+  loadDatasBySearchTerm,
   loadTree
 }

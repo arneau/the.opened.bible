@@ -1,4 +1,4 @@
-import { TOGGLE_ASIDE } from '../actions/types.js'
+import { TOGGLE_ASIDE } from '../actions/aside.js'
 
 const initialState = {
   isVisible: false

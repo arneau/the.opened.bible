@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { loadDatas, loadTree } from '../../actions.js'
+import { loadDatasByIds, loadTree } from '../../actions.js'
 
 import ListItem from './list_item.jsx'
 
@@ -21,7 +21,7 @@ export default class List extends React.Component {
     let dispatch = this.context.dispatch
     dispatch(loadTree())
     .then(() => {
-      dispatch(loadDatas(this.context.state.groups.tree[0]))
+      dispatch(loadDatasByIds(this.context.state.groups.tree[0]))
     })
   }
 

@@ -1,0 +1,11 @@
+@import 'config';
+
+:local {
+
+	.shadow {
+		border: none;
+		border-bottom: 1px solid desaturate(lighten($medium_blue, 40), 60);
+		box-shadow: 0 0 0 1px desaturate(lighten($medium_blue, 50), 50);
+	}
+
+}

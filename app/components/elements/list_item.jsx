@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import { loadDatas } from '../../actions.js'
+import { loadDatasByIds } from '../../actions.js'
 
 import styles from './list_item.scss'
 
@@ -18,7 +18,7 @@ export default class ListItem extends React.Component {
 
   showChildren (id) {
     let dispatch = this.context.dispatch
-    dispatch(loadDatas(this.context.state.groups.tree[id]))
+    dispatch(loadDatasByIds(this.context.state.groups.tree[id]))
   }
 
   render () {

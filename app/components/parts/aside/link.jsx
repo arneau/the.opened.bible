@@ -11,7 +11,7 @@ export default class AsideLinkComponent extends React.Component {
 
   render () {
     return (
-      <Link strict activeClassName={styles.active} className={styles.link} to={this.props.to}>
+      <Link activeClassName={styles.active} className={styles.link} to={this.props.to}>
         <i className="material-icons">{this.props.icon}</i>
         <span>{this.props.label}</span>
       </Link>
